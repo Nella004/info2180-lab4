@@ -64,6 +64,31 @@ $superheroes = [
   ], 
 ];
 
+if ($query === '') {
+    echo "<ul>";
+    foreach ($superheroes as $superhero) {
+        echo "<li>" . $superhero['alias'] . "</li>";
+    }
+    echo "</ul>";
+    exit;
+}
+
+$found = false;
+foreach ($superheroes as $superhero) {
+    if (strcasecmp($query, $superhero['alias']) === 0 || strcasecmp($query, $superhero['name']) === 0) {
+        echo "<h3>" . $superhero['alias'] . "</h3>";
+        echo "<h4>" . $superhero['name'] . "</h4>";
+        echo "<p>" . $superhero['biography'] . "</p>";
+        $found = true;
+        break;
+    }
+}
+
+// If no superhero is found, display an error message
+if (!$found) {
+    echo "<p>Superhero not found</p>";
+}
+?>
 ?>
 
 <ul>
