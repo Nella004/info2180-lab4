@@ -89,10 +89,3 @@ if (!$found) {
     echo "<p>Superhero not found</p>";
 }
 ?>
-?>
-
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
